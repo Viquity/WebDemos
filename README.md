@@ -1,5 +1,7 @@
 # WebDemos
 
+Status: ***Experimental***, still in development.
+
 WebDemos is a free and open-source application to help you provide SourceTV / GOTV demos from your game servers to players.
 
 ## Feature Roadmap
@@ -57,4 +59,4 @@ npm run dev
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+[MIT](https://choosealicense.com/licenses/mit/)
