@@ -1,6 +1,5 @@
 const express = require('express');
 const multer = require('multer');
-const uuid = require('uuid').v4;
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();

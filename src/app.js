@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
+const findRemoveSync = require('find-remove')
+const CronJob = require('cron').CronJob;
 
 require('dotenv').config();
 
@@ -35,4 +37,15 @@ app.use('/api/v1', api);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
+// Delete old demos every two days.
+console.log('Before job instantiation');
+const deleteCron = new CronJob('* * * * *', function() {
+findRemoveSync(__dirname + "..\public\demos", {age: {seconds: 10}, extensions: '.dem', limit: 200})
+}, null, true, 'America/Los_Angeles');
+console.log(__dirname + '..\public\demos');
+deleteCron.start();
+console.log('Job Started');
+
 module.exports = app;
+
+// 00 00 */2 * * every 2 days
