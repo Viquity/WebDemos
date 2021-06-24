@@ -7,6 +7,9 @@ require('dotenv').config();
 
 const router = express.Router();
 
+const demoDir = `${__dirname}../../../public/demos`;
+const tmpDir = `${__dirname}../../../tmp`;
+
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, 'tmp');
@@ -38,18 +41,32 @@ function authorizeUser(req, res, next) {
 }
 
 /*
-    File upload works but I'm unable to get the new demo file name. Maybe because it hasn't completed the copy yet?
+    File upload works but creating the serverID directory has to be done manually at the moment.
+    TODO: Rework the absolute/relative paths as right now they're super jank.
 */
 router.post('/', authorizeUser, upload.any('demoFile'), (req, res, next) => {
   try {
-    let demoFilename = req.files.filename
-    const serverID = req.body.serverID;
-    const demoDir = __dirname + '../../public/demos'
-    console.log(demoFilename)
-    res.json({
-        message: "File uploaded!"
-    })
+    const demoFilename = req.files[0].filename;
+    const { serverID } = req.body;
+    console.log(demoFilename);
 
+    fs.copyFile(`${tmpDir}/${demoFilename}`, `${demoDir}/${serverID}/${demoFilename}`, (err) => {
+      if (err) {
+        return res.json({
+          message: 'Failed to copy demo to public directory.'
+        });
+      }
+      console.log(`${demoFilename} was copied!`);
+      try {
+        fs.unlinkSync(`${tmpDir}/${demoFilename}`);
+        console.log('Successfully deleted the file after copy.');
+      } catch (err) {
+        return next(error);
+      }
+    });
+    res.json({
+      message: 'File uploaded!'
+    });
   } catch (error) {
     return next(error);
   }
