@@ -6,8 +6,8 @@ WebDemos is a free and open-source application to help you provide SourceTV / GO
 
 ## Feature Roadmap / TODO
 - [ ] Frontend to Browse Demos
-- [ x ] Automatic demo deletion
-- [ x ] Seperate demos by server
+- [x] Automatic demo deletion
+- [x] Seperate demos by server
 - [ ] Demo compression
 - [ ] User login / Require auth to download/view demos
 - [ ] Backblaze B2 support
