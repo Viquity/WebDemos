@@ -4,10 +4,10 @@ Status: ***Experimental***, still in development.
 
 WebDemos is a free and open-source application to help you provide SourceTV / GOTV demos from your game servers to players.
 
-## Feature Roadmap
-- [ ] Automatic demo uploads
-- [ ] Automatic demo deletion
-- [ ] Seperate demos by server
+## Feature Roadmap / TODO
+- [ ] Frontend to Browse Demos
+- [ x ] Automatic demo deletion
+- [ x ] Seperate demos by server
 - [ ] Demo compression
 - [ ] User login / Require auth to download/view demos
 - [ ] Backblaze B2 support

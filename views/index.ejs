@@ -8,6 +8,7 @@
     <title>WebDemos - GOTV System</title>
 </head>
 <body>
+  <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">WebDemos</a>
@@ -29,14 +30,28 @@
           </div>
         </div>
       </nav>
+
+      <!-- SERVER SELECT FORM -->
       <div class="container-fluid">
-      <h2 class="text-center p-3">Server List</h2>
+        <div class="form-group align-left ml-2 w-25">
+          <label for="exampleSelect1" class="form-label mt-4 text-white">Server Selection</label>
+          <select class="form-select" id="exampleSelect1">
+            <option value="" selected disabled>Select a Server</option>
+            <option>Retakes #1 [LA]</option>
+            <option>Retakes #2 [CHI]</option>
+            <option>Retakes #3 [LA]</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- DEMO LIST -->
+      <div class="container-fluid">
+        <br>
       <table class="table table-light">
         <thead>
           <tr>
             <th scope="col">Server Name</th>
-            <th scope="col">ID</th>
-            <th scope="col">Map</th>
+            <th scope="col">Demo ID</th>
             <th scope="col">Time</th>
             <th scope="col">Download</th>
           </tr>
@@ -44,13 +59,11 @@
         <tbody>
           <tr class="table-light">
             <th scope="row">Retakes #1 [LA]</th>
-            <td>Demo Name Here</td>
-            <td>Map for Demo Here</td>
-            <td>Length of Demo Here (demofile parse)</td>
+            <td>1624611142939-auto-20210513-195612-de_mirage.dem</td>
+            <td>3 minutes ago</td>
             <td><a href="/demos/1624472871556-auto-20210513-195612-de_mirage.dem">Download</a></td>
           </tr>
     </div>
-
     <script src="/js/jquery-3.2.1.slim.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
